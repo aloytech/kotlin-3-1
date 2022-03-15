@@ -8,6 +8,8 @@ fun main() {
     for (i in 1..5) {
         println("Пользователь был в сети " + agoToText(60 * 60 * (i * i + 2) + 5))
     }
+    println("Пользователь был в сети " + agoToText(2*24*60*60+5))
+    println("Пользователь был в сети " + agoToText(3*24*60*60+5))
 
 }
 
@@ -16,6 +18,8 @@ fun agoToText(pastTime: Int): String {
         pastTime <= 60 -> "только что"
         pastTime <= 3600 -> minutesAgo(pastTime)
         pastTime <= 24 * 60 * 60 -> hoursAgo(pastTime)
+        pastTime <= 2 * 24 * 60 * 60 -> "сегодня"
+        pastTime <= 3 * 24 * 60 * 60 -> "вчера"
         else -> "давно"
     }
 }
